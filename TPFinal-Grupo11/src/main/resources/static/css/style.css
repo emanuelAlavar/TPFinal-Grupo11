@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.titulo-index{
+	font-family:Poppins,sans-serif;
+	text-align:left;
+	font-size:56px;
+	color:#3c3c3c;
+}
+h2{
+	font-family:Poppins,sans-serif;
+	text-align:left;
+}
+
+img{
+	opacity:.9;
+}
