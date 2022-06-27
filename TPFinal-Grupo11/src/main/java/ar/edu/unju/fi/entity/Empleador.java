@@ -51,6 +51,8 @@ public class Empleador extends Usuario implements Serializable{
 	@Column(name = "descripcion")
 	@NotBlank(message = "No puede estar vacio")
 	private String descripcion;
+	@Column(name="estado")
+	private boolean estado;
 	
 	//-----EMPLEADOR A USUARIO----- IMPLICA QUE UN SOLO USUARIO SOLO PUEDE PERTENECER A UN SOLO TIPO EMPLEADOR
 	@OneToOne(fetch = FetchType.LAZY)
@@ -114,6 +116,12 @@ public class Empleador extends Usuario implements Serializable{
 	}
 	public void setOfertas(List<Oferta> ofertas) {
 		this.ofertas = ofertas;
+	}
+	public boolean isEstado() {
+		return estado;
+	}
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 	
