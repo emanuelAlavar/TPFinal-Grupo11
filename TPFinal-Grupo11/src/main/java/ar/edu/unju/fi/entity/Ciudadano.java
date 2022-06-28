@@ -31,6 +31,9 @@ public class Ciudadano extends Usuario implements Serializable{
 	private static final long serialVersionUID = -6553898866157297477L;
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "ciu_codigo")
 	private int codigo;
+	@Column(name = "dni")
+	@Size(min=8, max=8, message = "Debe tener 8 cifras sin guiones")
+	private String dni;
 	@Column(name = "nroTramite")
 	@Size(min=4, max=100, message = "Debe tener un minimo de 4 cifras o un maximo de 100")
 	private String nroT;
@@ -40,7 +43,8 @@ public class Ciudadano extends Usuario implements Serializable{
 	@Column(name = "nacimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd") @Past(message = "La fecha no es correcta")
 	private LocalDate fechaNacimiento;
-	
+	@Column(name="state")
+	private boolean state;
 	//-----CIUDADANO A CV----- IMPLICA QUE UN SOLO USUARIO SOLO PUEDE TENER UN TIPO CV
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
@@ -91,6 +95,18 @@ public class Ciudadano extends Usuario implements Serializable{
 	}
 	public void setOfertas(List<Oferta> ofertas) {
 		this.ofertas = ofertas;
+	}
+	public boolean isState() {
+		return state;
+	}
+	public void setState(boolean state) {
+		this.state = state;
+	}
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 	
 	
