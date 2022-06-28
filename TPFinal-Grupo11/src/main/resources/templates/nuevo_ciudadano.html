@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Nuevo Cuidadano</title>
+	</head>
+	<body >
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>ALTA DE CUIDADANO</h2><br>
+			<form th:action="@{/saveCiudadano}" method="POST" th:object="${ciudadano}">
+			  <div class="mb-3">
+			    <label for="idEmail" class="col-form-label">Email</label>
+			    <input th:field="*{email}" type="text" class="form-control" id="idEmail">
+			    <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			  </div>
+			  <div class="mb-3">
+			    <label for="idContraseña" class="col-form-label">Contrasena</label>
+			    <input th:field="*{contraseña}" type="text" class="form-control" id="idContraseña">
+			    <div class="text-danger" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
+			  </div>
+			  <div class="mb-3">
+			    <label for="idProvincia" class="col-form-label">Provincia</label>
+			    <input th:field="*{provincia}" type="text" class="form-control" id="idProvincia">
+			    <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+			  </div>
+			  <div class="mb-3">
+			    <label for="idDni" class="col-form-label">DNI</label>
+			    <input th:field="*{dni}" type="text" class="form-control" id="idDni">
+			    <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+			  </div>
+			  <div class="mb-3">
+			    <label for="idNroT" class="col-form-label">Numero de Tramite</label>
+			    <input th:field="*{nroT}" type="text" class="form-control" id="idNroT">
+			    <div class="text-danger" th:if="${#fields.hasErrors('nroT')}" th:errors="*{nroT}"></div>
+			  </div>
+			  <div class="mb-3 row">
+			    <label for="idEstado" class="col-form-label">Estado Civil</label>
+			    <input th:field="*{estado}" type="text" class="form-control" id="idEstado">
+			    <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
+			  </div>
+			  
+			  <div class="mb-3 row">
+			    <label for="idFechaNacimiento" class="col-form-label">Fecha de Nacimiento</label>
+				<input th:field="*{fechaNacimiento}" type="date" class="form-control" id="idFechaNacimiento">
+				<div class="text-danger" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+			  </div>
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Telefono</label>
+			    <input th:field="*{telefono}" type="text" class="form-control" id="idTelefono">
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+			  </div>
+			    
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button  class="btn btn-primary me-md-2" type="submit">Registrar</button>
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

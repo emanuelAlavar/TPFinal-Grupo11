@@ -38,7 +38,9 @@ public class Usuario implements Serializable{
 	@Column(name = "provincia")
 	@NotBlank(message = "No puede estar en blanco")
 	private	String provincia;
-	
+	@Column(name = "telefono")
+	@Size(min=10, max=10, message = "Debe tener 10 cifras sin guiones")
+	private String telefono;
 	
 	public String getEmail() {
 		return email;
@@ -57,6 +59,12 @@ public class Usuario implements Serializable{
 	}
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 	
 	
