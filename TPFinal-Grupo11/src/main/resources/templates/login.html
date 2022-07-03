@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>				
+		<meta charset="UTF-8">
+		<title>Logueo</title>
+	</head> 
+	<body >
+		<header th:replace="/layouts/header::header"></header>
+		<div class="container col-4">
+			<h2>iniciar sesion</h2><br>
+			<form th:action="@{/saveCiudadano}" method="POST" th:object="${ciudadano}">
+			  
+			  <div class="mb-3">
+			    <label for="idContraseña" class="col-form-label">Contrasena</label>
+			    <input th:field="*{contraseña}" type="text" class="form-control" id="idContraseña">
+			    <div class="text-danger" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
+			  </div>
+			  
+			  <div class="mb-3">
+			    <label for="idDni" class="col-form-label">DNI</label>
+			    <input th:field="*{dni}" type="text" class="form-control" id="idDni">
+			    <div class="text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+			  </div>
+			  
+			    
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					<button  class="btn btn-primary me-md-2" type="submit">aceptar</button>
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+			  </div>
+			</form>
+		</div>
+		<br><br>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>
