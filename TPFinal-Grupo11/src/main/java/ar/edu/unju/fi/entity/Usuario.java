@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,9 +14,12 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.util.Provincias;
 
 //-----USUARIO----- LA EXISTENCIA DE ESTA CLASE CONTROLADORA IMPLICA QUE DEBEN HABER DOS LOGINS DISTINTOS: UNO PARA CIUDADANO Y OTRO PARA EMPLEADOR.
 
@@ -35,9 +40,9 @@ public class Usuario implements Serializable{
 	@Column(name = "contraseña")
 	@NotBlank(message = "No puede estar en blanco") @Size(min=8, max=12, message="Debe tener un minimo de 8 caracteres o un maximo de 12")
 	private String contraseña;
-	@Column(name = "provincia")
-	@NotBlank(message = "No puede estar en blanco")
-	private	String provincia;
+	@NotNull(message = "Debe elegir una provincia")
+	@Column(name="provincia")
+	private String provincia;
 	@Column(name = "telefono")
 	@Size(min=10, max=10, message = "Debe tener 10 cifras sin guiones")
 	private String telefono;
@@ -54,6 +59,7 @@ public class Usuario implements Serializable{
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
+	
 	public String getProvincia() {
 		return provincia;
 	}

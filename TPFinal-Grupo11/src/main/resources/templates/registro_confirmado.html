@@ -10,24 +10,14 @@
 		<title>Registrado</title>
 	</head>
 	<body>
+		<header th:replace="/layouts/header::header"></header>
 		<div class="container">
-			<br>
-			<header th:replace="/layouts/header::header"></header>
-			
-				<section class="Inicio">
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<p class="h5 mb-10">registrado con exito</p>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-				</section>
-			<footer th:replace="/layouts/footer::footer"></footer>
+			<br>	
+			<section>
+				<h1 style="text-align:center; margin-bottom:30px;">Se ha registrado con exito</h1>
+				<p style="text-align:center; font-size:1.5em">Inicie sesion para comenzar</p>
+			</section><br><br><br><br><br><br><br>	
 		</div>
-		</body>
+		<footer th:replace="/layouts/footer::footer"></footer>
+	</body>
 </html>

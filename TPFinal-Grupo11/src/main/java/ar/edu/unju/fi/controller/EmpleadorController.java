@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.entity.Empleador;
 
 import ar.edu.unju.fi.service.IEmpleadorService;
+import ar.edu.unju.fi.util.Provincias;
 
 @Controller
 @RequestMapping
@@ -25,10 +26,13 @@ public class EmpleadorController {
 	IEmpleadorService empleadorService;
 	@Autowired
 	private Empleador empleador;
+	@Autowired
+	Provincias provincias;
 	
 	@GetMapping("/nuevoEmpleador")
 	public String agregar(Model model) {
 		model.addAttribute("empleador", empleador);
+		model.addAttribute("provincias", provincias.getProvincias());
 		return "nuevo_empleador";
 	}
 	

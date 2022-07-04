@@ -21,10 +21,11 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
 			  </div>
 			  <div class="mb-3">
-			    <label for="idProvincia" class="col-form-label">Provincia</label>
-			    <input th:field="*{provincia}" type="text" class="form-control" id="idProvincia">
-			    <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
-			  </div>
+					<label for="inProvincia" class="form-label">Provincia</label> 
+					<select	class="form-control mb-3" th:field="*{provincia}" id="inProvincia">
+						<option th:each="provincia : ${provincias}" th:value="${provincia}" th:text="${provincia}"></option>
+					</select>
+				</div>
 			  <div class="mb-3">
 			    <label for="idDni" class="col-form-label">DNI</label>
 			    <input th:field="*{dni}" type="text" class="form-control" id="idDni">
@@ -35,11 +36,12 @@
 			    <input th:field="*{nroT}" type="text" class="form-control" id="idNroT">
 			    <div class="text-danger" th:if="${#fields.hasErrors('nroT')}" th:errors="*{nroT}"></div>
 			  </div>
-			  <div class="mb-3 row">
-			    <label for="idEstado" class="col-form-label">Estado Civil</label>
-			    <input th:field="*{estado}" type="text" class="form-control" id="idEstado">
-			    <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
-			  </div>
+			  <div class="mb-3">
+					<label for="idEstadoCivil">Estado Civil</label>
+					<select class="form-control mb-3" th:field="*{estado}" id="idEstadoCivil">
+						<option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
+				  	</select>
+		  		</div>
 			  
 			  <div class="mb-3 row">
 			    <label for="idFechaNacimiento" class="col-form-label">Fecha de Nacimiento</label>
@@ -54,9 +56,8 @@
 			    
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 					<button  class="btn btn-primary me-md-2" type="submit">Registrar</button>
-					<a th:href="@{/registro_confirmado}" id="cancel" class="btn btn-secondary">Cancelar</a>
-			  </div>
-			  
+					<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">Cancelar</a>
+			  </div>			  
 			</form>
 		</div>
 		<br><br>

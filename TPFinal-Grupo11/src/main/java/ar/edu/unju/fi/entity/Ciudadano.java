@@ -38,7 +38,7 @@ public class Ciudadano extends Usuario implements Serializable{
 	@Size(min=4, max=100, message = "Debe tener un minimo de 4 cifras o un maximo de 100")
 	private String nroT;
 	@Column(name = "estado")
-	@NotBlank(message = "No puede estar vacio")
+	@NotBlank(message = "Debe elegir una opcion")
 	private String estado;
 	@Column(name = "nacimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd") @Past(message = "La fecha no es correcta")
