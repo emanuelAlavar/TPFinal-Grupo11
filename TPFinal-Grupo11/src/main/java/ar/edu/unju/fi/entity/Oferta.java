@@ -52,6 +52,10 @@ public class Oferta implements Serializable{
 	@NotBlank(message = "No puede estar vacio")
 	private String beneficios;
 	private boolean disponible = (vacantes > 0);
+	
+	
+	@Column(name="state")
+	private boolean stat;
 	public int getVacantes() {
 		return vacantes;
 	}
@@ -111,6 +115,18 @@ public class Oferta implements Serializable{
 	}
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+	public boolean isStat() {
+		return stat;
+	}
+	public void setStat(boolean state) {
+		this.stat = state;
+	}
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 	
 	
