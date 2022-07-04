@@ -21,10 +21,11 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
 			  </div>
 			  <div class="mb-3">
-			    <label for="idProvincia" class="col-form-label">Provincia</label>
-			    <input th:field="*{provincia}" type="text" class="form-control" id="idProvincia">
-			    <div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
-			  </div>
+					<label for="inProvincia" class="form-label">Provincia</label> 
+					<select	class="form-control mb-3" th:field="*{provincia}" id="inProvincia">
+						<option th:each="provincia : ${provincias}" th:value="${provincia}" th:text="${provincia}"></option>
+					</select>
+				</div>
 			  <div class="mb-3">
 			    <label for="idCuit" class="col-form-label">CUIT</label>
 			    <input th:field="*{cuit}" type="text" class="form-control" id="idCuit">
