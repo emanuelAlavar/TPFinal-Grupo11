@@ -8,9 +8,9 @@ import ar.edu.unju.fi.entity.Empleador;
 
 @Component
 public class ListaEmpleador {
-	private ArrayList<Empleador> empleadores;
+	private ArrayList<Empleador> empleador;
 	
-	public void setEmpleador(ArrayList<Empleador> empleadores) {
-		this.empleadores = empleadores;
+	public void setEmpleador(ArrayList<Empleador> empleador) {
+		this.empleador = empleador;
 	}
 }

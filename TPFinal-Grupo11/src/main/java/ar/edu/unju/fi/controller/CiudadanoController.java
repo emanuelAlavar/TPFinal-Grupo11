@@ -28,6 +28,6 @@ public class CiudadanoController {
 	@PostMapping("/saveCiudadano")
 	public String guardar(@Valid Ciudadano ciudadano, Model model) {
 		ciudadanoService.guardarCiudadano(ciudadano);
-		return "redirect:/inicio";
+		return "registro_confirmado";
 	}
 }
