@@ -38,7 +38,7 @@
 			  </div>
 			  <div class="mb-3">
 					<label for="idEstadoCivil">Estado Civil</label>
-					<select class="form-control mb-3" th:field="*{estado}" id="idEstadoCivil">
+					<select class="form-control mb-3" th:field="*{estadoC}" id="idEstadoCivil">
 						<option th:each="estado : ${estados}" th:value="${estado}" th:text="${estado}"></option>
 				  	</select>
 		  		</div>

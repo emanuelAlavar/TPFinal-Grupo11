@@ -32,7 +32,7 @@ public class Empleador extends Usuario implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "emp_codigo")
 	private int codigo;
 	@Column(name = "cuit")
-	@Size(min=10, max=10, message = "Debe tener 10 cifras sin guiones")
+	@Size(min=11, max=11, message = "Debe tener 11 cifras sin guiones")
 	private String cuit;
 	@Column(name = "razon")
 	@NotBlank(message = "No puede estar vacio")

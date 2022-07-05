@@ -21,11 +21,11 @@
 			    <div class="text-danger" th:if="${#fields.hasErrors('contraseña')}" th:errors="*{contraseña}"></div>
 			  </div>
 			  <div class="mb-3">
-					<label for="inProvincia" class="form-label">Provincia</label> 
-					<select	class="form-control mb-3" th:field="*{provincia}" id="inProvincia">
-						<option th:each="provincia : ${provincias}" th:value="${provincia}" th:text="${provincia}"></option>
-					</select>
-				</div>
+				 <label for="inProvincia" class="form-label">Provincia</label> 
+				 <select	class="form-control mb-3" th:field="*{provincia}" id="inProvincia">
+					<option th:each="provincia : ${provincias}" th:value="${provincia}" th:text="${provincia}"></option>
+				 </select>
+			  </div>
 			  <div class="mb-3">
 			    <label for="idCuit" class="col-form-label">CUIT</label>
 			    <input th:field="*{cuit}" type="text" class="form-control" id="idCuit">
@@ -50,6 +50,11 @@
 			    <label for="idDomicilio" class="col-form-label">Domicilio</label>
 				<input th:field="*{domicilio}" type="text" class="form-control" id="idDomicilio">
 				<div class="text-danger" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+			  </div>
+			  <div class="mb-3 row">
+			    <label for="idTelefono" class="col-form-label">Telefono</label>
+			    <input th:field="*{telefono}" type="text" class="form-control" id="idTelefono">
+			    <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 			  </div>
 			  <div class="mb-3 row">
 			    <label for="idPagina" class="col-form-label">Pagina</label>

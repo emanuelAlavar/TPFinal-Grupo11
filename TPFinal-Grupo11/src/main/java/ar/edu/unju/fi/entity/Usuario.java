@@ -40,10 +40,12 @@ public class Usuario implements Serializable{
 	@Column(name = "contraseña")
 	@NotBlank(message = "No puede estar en blanco") @Size(min=8, max=12, message="Debe tener un minimo de 8 caracteres o un maximo de 12")
 	private String contraseña;
+	@NotBlank
 	@NotNull(message = "Debe elegir una provincia")
 	@Column(name="provincia")
 	private String provincia;
 	@Column(name = "telefono")
+	@NotBlank
 	@Size(min=10, max=10, message = "Debe tener 10 cifras sin guiones")
 	private String telefono;
 	

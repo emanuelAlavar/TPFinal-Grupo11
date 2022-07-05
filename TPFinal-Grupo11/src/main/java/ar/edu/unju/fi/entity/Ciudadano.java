@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -32,19 +33,22 @@ public class Ciudadano extends Usuario implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "ciu_codigo")
 	private int codigo;
 	@Column(name = "dni")
+	@NotBlank
 	@Size(min=8, max=8, message = "Debe tener 8 cifras sin guiones")
 	private String dni;
 	@Column(name = "nroTramite")
-	@Size(min=4, max=100, message = "Debe tener un minimo de 4 cifras o un maximo de 100")
+	@NotBlank(message="El dni no puede quedar en blanco")
+	@Size(min=11, max=11, message = "Debe tener un maximo de 11 cifras")
 	private String nroT;
-	@Column(name = "estado")
+	@Column(name = "estadoC")
 	@NotBlank(message = "Debe elegir una opcion")
-	private String estado;
+	private String estadoC;
 	@Column(name = "nacimiento")
 	@DateTimeFormat(pattern = "yyyy-MM-dd") @Past(message = "La fecha no es correcta")
+	@NotNull
 	private LocalDate fechaNacimiento;
-	@Column(name="state")
-	private boolean state;
+	@Column(name="estado")
+	private boolean estado;
 	//-----CIUDADANO A CV----- IMPLICA QUE UN SOLO USUARIO SOLO PUEDE TENER UN TIPO CV
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
@@ -66,11 +70,11 @@ public class Ciudadano extends Usuario implements Serializable{
 	public void setNroT(String nroT) {
 		this.nroT = nroT;
 	}
-	public String getEstado() {
-		return estado;
+	public String getEstadoC() {
+		return estadoC;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEstadoC(String estadoC) {
+		this.estadoC = estadoC;
 	}
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
@@ -96,11 +100,11 @@ public class Ciudadano extends Usuario implements Serializable{
 	public void setOfertas(List<Oferta> ofertas) {
 		this.ofertas = ofertas;
 	}
-	public boolean isState() {
-		return state;
+	public boolean isEstado() {
+		return estado;
 	}
-	public void setState(boolean state) {
-		this.state = state;
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	public String getDni() {
 		return dni;

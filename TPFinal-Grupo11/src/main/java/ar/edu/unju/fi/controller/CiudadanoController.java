@@ -38,6 +38,6 @@ public class CiudadanoController {
 		ciudadanoService.guardarCiudadano(ciudadano);
 		return "registro_confirmado";
 	}
+
 	
-    
 }

@@ -21,7 +21,7 @@ public class CiudadanoServiceImp implements ICiudadanoService {
 	@Override
 	public boolean guardarCiudadano(Ciudadano ciudadano) {
 		// TODO Auto-generated method stub
-		ciudadano.setState(true);
+		ciudadano.setEstado(true);
 		if(ciudadanoImp.save(ciudadano)!=null) {
 			return true;
 		}
